@@ -2,22 +2,18 @@ package oldSource;
 
 public class Main {
 
-    public static void main(String[] args) {
-        Map map = new Map();
-        Node current = new Node();
-        
-        //Initialize MAP with UNBLOCKED nodes
-        for (int c=0; c<=map.ROWS-1; c++){
-            for (int r=0; r<=map.COLS-1; r++){
-                map.map[r][c]=new Node();
-            }
-        }
-        
+    public static void main(String[] args) {        
         //Define start and finish
-        int tx = 9;	//Columns
-        int ty = 0;	//Rows
-        int sx = 0;	
-        int sy = 9;
+        int tx = 6;	//Columns
+        int ty = 8;	//Rows
+        int sx = 1;	
+        int sy = 0;
+        
+        Pathfinder pathF = new Pathfinder();
+        pathF.findAdjacent(new Node(0,0));
+        pathF.findAdjacent(new Node(0,9));
+        pathF.findAdjacent(new Node(9,0));
+        pathF.findAdjacent(new Node(9,9));
          
         /*Node n1 = new Node("Jean", false);
         Node n2 = new Node("William",n1,null, false);
