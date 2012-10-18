@@ -10,7 +10,7 @@ public class Pathfinder extends HeuristicCalculator{
 	ArrayList<Node> openList = new ArrayList<Node>();
 	ArrayList<Node> closedList = new ArrayList<Node>();
 	
-	public void Pathfinder(Node start, Node target){
+	public Pathfinder(Node start, Node target){
 		this.target = target;
 		int currentElementNum = 0;
 		openList.add(start);

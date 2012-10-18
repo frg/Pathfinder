@@ -3,16 +3,11 @@ package oldSource;
 public class Main {
 
     public static void main(String[] args) {        
-        //Define start and finish
-        int tx = 6;	//Columns
-        int ty = 8;	//Rows
-        int sx = 1;	
-        int sy = 0;
+        //Define start and finish        
+        Node start = new Node (1, 0, Double.MAX_VALUE, Double.MAX_VALUE);
+        Node target = new Node (6, 9, 0, 0);
         
-        Node start = new Node (6, 8, Double.MAX_VALUE, Double.MAX_VALUE);
-        Node target = new Node (1, 0, 0, 0);
-        
-        Pathfinder pathF = new Pathfinder();
+        Pathfinder pathF = new Pathfinder(start, target);
          
         /*Node n1 = new Node("Jean", false);
         Node n2 = new Node("William",n1,null, false);
