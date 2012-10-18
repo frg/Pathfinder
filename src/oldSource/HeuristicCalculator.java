@@ -27,8 +27,8 @@ public class HeuristicCalculator{
         return h;
     }*/
     
-    public double manhattanDistance(int x, int y, int tx, int ty){
-        double h = 10*(Math.abs(x-tx)+Math.abs(y-ty));
+    public double manhattanDistance(Node current, Node target){
+        double h = 10*(Math.abs(current.getX()- target.getX())+Math.abs(current.getY() - target.getY()));
         return h;
     }
 }

@@ -9,11 +9,10 @@ public class Main {
         int sx = 1;	
         int sy = 0;
         
+        Node start = new Node (6, 8, Double.MAX_VALUE, Double.MAX_VALUE);
+        Node target = new Node (1, 0, 0, 0);
+        
         Pathfinder pathF = new Pathfinder();
-        pathF.findAdjacent(new Node(0,0));
-        pathF.findAdjacent(new Node(0,9));
-        pathF.findAdjacent(new Node(9,0));
-        pathF.findAdjacent(new Node(9,9));
          
         /*Node n1 = new Node("Jean", false);
         Node n2 = new Node("William",n1,null, false);

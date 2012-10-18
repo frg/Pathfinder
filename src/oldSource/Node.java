@@ -1,13 +1,25 @@
 package oldSource;
 
-public class Node {
-    private Node prev;
-    private Node next;
+public class Node extends HeuristicCalculator{
+    private Node parent;
     private int x;
 	private int y;
     //F = G(dist from start) + H(dist from end);
     private double f;
 
+    public Node(int x, int y, Node parent, double g, double h){
+        this.x = x;
+        this.y = y;
+        this.parent = parent;
+        setF(g, h);
+    }
+    
+    public Node(int x, int y, double g, double h){
+        this.x = x;
+        this.y = y;
+        setF(g, h);
+    }
+    
     public Node(int x, int y){
         this.x = x;
         this.y = y;
@@ -30,21 +42,17 @@ public class Node {
  	public String toString() {
  		return "x:" + x + " y:" + y;
  	}
-    
-    public Node getPrev() {
-        return prev;
+ 	
+ 	public void printCords(){
+ 		System.out.println("x:" + x + " y:" + y);
+ 	}
+
+    public Node getParent() {
+        return parent;
     }
 
-    public void setPrev(Node prev) {
-        this.prev = prev;
-    }
-
-    public Node getNext() {
-        return next;
-    }
-
-    public void setNext(Node next) {
-        this.next = next;
+    public void setParent(Node parent) {
+        this.parent = parent;
     }
     
     public int getX() {

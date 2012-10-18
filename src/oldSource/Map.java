@@ -29,11 +29,11 @@ public class Map{
     	for (int x = 0; x < 10; x++){
     		for (int y = 0; y < 10; y++){
     			if (map[y][x] == 1){
-    				nodeMap[y][x] = new MapNode(x, y, true);
+    				nodeMap[y][x] = new MapNode(x, y, true, Double.MAX_VALUE);
     			} else {
-    				nodeMap[y][x] = new MapNode(x, y, false);
+    				nodeMap[y][x] = new MapNode(x, y, false, map[y][x]);
     			}
-    			//System.out.println(nodeMap[y][x].toString());
+    			//nodeMap[y][x].printCords();
     		}
     	}
     }
