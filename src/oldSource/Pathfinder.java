@@ -12,24 +12,43 @@ public class Pathfinder extends HeuristicCalculator{
 	
 	public Pathfinder(Node start, Node target){
 		this.target = target;
+		
+		Node current = router(start);
+		//do until target is found
+		while (!current.compareTo(target)){
+			current = router(current);
+		}
+	}
+	
+	public Node router(Node current){
 		int currentElementNum = 0;
-		openList.add(start);
 		//saves the location of the item to be searched
 		currentElementNum = openList.size();
+		openList.add(current);
 		
 		//adds adjacent nodes to open list
-		Collections.copy(openList, findAdjacent(start));
+		openList.addAll(findAdjacent(current));
+		//adds current element to closed list
+		closedList.add(openList.get(currentElementNum));
 		//remove searched item from open list
-		openList.remove(0);
-		//remove null elements
-		openList.removeAll(Collections.singleton(null));
+		openList.remove(currentElementNum);
 		
+		//find node with lowest f in open list
+		double lowF = Double.MAX_VALUE;
+		int element = Integer.MAX_VALUE;
+		for(int i = 0; i < openList.size(); i++){
+			if (!closedContains(openList.get(i)) && openList.get(i).getF() < lowF){
+				lowF = openList.get(i).getF();
+				element = i;
+			}
+		}
 		
+		System.out.println("current: " + openList.get(element).toString());
+		return openList.get(element);
 	}
 
 	//Assumption that provided node is not wall
 	public ArrayList<Node> findAdjacent(Node current){
-		//Node nodeList[] = new Node[4];
 		ArrayList<Node> nodeList = new ArrayList<Node>();
 		Double h = manhattanDistance(current, target);
 		
@@ -53,6 +72,7 @@ public class Pathfinder extends HeuristicCalculator{
 					//values required to work out h
 					map.nodeMap[current.getY()+1][current.getX()].getG(), h));
 		}
+		
 		nodeList.trimToSize();
 		
 		System.out.println("==== Adjacent Nodes ==== " + current.toString());
@@ -61,5 +81,25 @@ public class Pathfinder extends HeuristicCalculator{
 		}
 		
 		return nodeList;
+	}
+	
+	public boolean closedContains(Node thisNode){
+		for (int i = 0; i < closedList.size(); i++){
+			if (closedList.get(i).compareTo(thisNode)) {
+				//System.out.println(thisNode.toString() + " is in closed list!");
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean openContains(Node thisNode){
+		for (int i = 0; i < openList.size(); i++){
+			if (openList.get(i).compareTo(thisNode)) {
+				//System.out.println(thisNode.toString() + " is in open list!");
+				return true;
+			}
+		}
+		return false;
 	}
 }
