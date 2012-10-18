@@ -1,4 +1,4 @@
-package oldSource;
+package src;
 
 //Include Manhattan distance, Euclidean distance, Diagonal shortcut
 import java.util.*;

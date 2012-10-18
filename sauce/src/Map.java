@@ -1,11 +1,11 @@
-package oldSource;
+package src;
 
 public class Map{
 	int mapX = 10;
 	int mapY = 10;
    
 	//Map
-    byte [][] map = new byte[][]{
+    int [][] map = new int[][]{
     		//       0 1 2 3 4 5 6 7 8 9
             /* 0 */ {1,0,0,0,0,1,1,1,1,1},
             /* 1 */ {1,1,1,1,0,0,1,0,0,1},
@@ -29,9 +29,9 @@ public class Map{
     	for (int x = 0; x < 10; x++){
     		for (int y = 0; y < 10; y++){
     			if (map[y][x] == 1){
-    				nodeMap[y][x] = new MapNode(x, y, true, Double.MAX_VALUE);
+    				nodeMap[y][x] = new MapNode(x, y, Double.MAX_VALUE);
     			} else {
-    				nodeMap[y][x] = new MapNode(x, y, false, map[y][x]);
+    				nodeMap[y][x] = new MapNode(x, y, map[y][x]);
     			}
     			//nodeMap[y][x].printCords();
     		}

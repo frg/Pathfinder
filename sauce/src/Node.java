@@ -1,4 +1,4 @@
-package oldSource;
+package src;
 
 public class Node extends HeuristicCalculator{
     private Node parent;

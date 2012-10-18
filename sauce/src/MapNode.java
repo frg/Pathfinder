@@ -1,22 +1,19 @@
-package oldSource;
+package src;
 
 public class MapNode {
     private int x;
 	private int y;
 	private double g;
-	private boolean wall;
 
-    public MapNode(int x, int y, boolean wall, double g){
+    public MapNode(int x, int y, double g){
         this.x = x;
         this.y = y;
-        this.wall = wall;
         this.g = g;
     }
     
     public MapNode(Node node){
     	x = node.getX();
     	y = node.getY();
-    	wall = false;
     }
     
     public MapNode(){
@@ -49,10 +46,6 @@ public class MapNode {
 	}
     
     public boolean isWall() {
-        return wall;
-    }
-
-    public void setWall(boolean wall) {
-        this.wall = wall;
+        return g == Double.MAX_VALUE;
     }
 }
