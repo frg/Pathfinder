@@ -16,6 +16,12 @@ public class MapNode {
     	y = node.getY();
     }
     
+    public MapNode(GuiTile node){
+    	x = node.getRow();
+    	y = node.getCol();
+    	g = node.getG();
+    }
+    
     // Compare by x and y
  	public boolean compareTo(MapNode node) {
  		return (node.x == x && node.y == y);

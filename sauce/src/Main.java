@@ -12,8 +12,5 @@ public class Main {
         new Pathfinder(start, target);
         watch.stop();
         System.out.println("Time taken to find path: " + watch.getElapsedTime() + "ms");
-        
-        Gui gui = new Gui();
-        gui.show();
     }
 }

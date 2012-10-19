@@ -4,20 +4,17 @@ import javax.swing.JToggleButton;
 
 public class GuiTile extends JToggleButton{
 	private double g;
-	private int row;
 	private int col;
+	private int row;
 	
-	public GuiTile(double g){
+	public GuiTile(int col, int row, double g){
+		this.col = col;
+		this.row = row;
 		this.g = g;
 	}
 	
 	public String toString(){
-		return "x: " + row + " y: " + col;
-	}
-	
-	public void setRowCol(int row, int col){
-		this.row = row;
-		this.col = col;
+		return "x: " + col + " y: " + row;
 	}
 
 	public double getG() {

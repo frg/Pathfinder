@@ -1,5 +1,7 @@
 package src;
 
+import java.util.ArrayList;
+
 public class Map{
 	int mapX = 10;
 	int mapY = 10;
@@ -19,15 +21,19 @@ public class Map{
             /* 9 */ {1,1,1,0,1,1,0,1,1,1}
     };
     
-    MapNode[][] nodeMap = new MapNode[10][10];
+    MapNode[][] nodeMap = new MapNode[mapY][mapX];
+
+    public Map(int mapX, int mapY, ArrayList<GuiTile> tileNodes){
+    	convertGuiTiles(tileNodes);
+    }
     
     public Map(){
     	convertMap();
     }
     
     public void convertMap(){
-    	for (int x = 0; x < 10; x++){
-    		for (int y = 0; y < 10; y++){
+    	for (int x = 0; x < mapX; x++){
+    		for (int y = 0; y < mapY; y++){
     			if (map[y][x] == 1){
     				nodeMap[y][x] = new MapNode(x, y, Double.MAX_VALUE);
     			} else {
@@ -35,6 +41,21 @@ public class Map{
     			}
     			//nodeMap[y][x].printCords();
     		}
+    	}
+    }
+    
+    public void convertGuiTiles(ArrayList<GuiTile> tileNodes){
+    	//Fill map with walkable nodes
+    	for (int x = 0; x < mapX; x++){
+    		for (int y = 0; y < mapY; y++){
+    			nodeMap[y][x] = new MapNode(x, y, 0);
+    			//nodeMap[y][x].printCords();
+    		}
+    	}
+    	
+    	//Fill map with specified walls
+    	for (int i = 0; i < tileNodes.size(); i++) {
+    		nodeMap[tileNodes.get(i).getRow()][tileNodes.get(i).getCol()] = new MapNode(tileNodes.get(i).getCol(), tileNodes.get(i).getRow(), Double.MAX_VALUE);
     	}
     }
 	
