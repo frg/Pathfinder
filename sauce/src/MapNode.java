@@ -16,9 +16,6 @@ public class MapNode {
     	y = node.getY();
     }
     
-    public MapNode(){
-    }
-    
     // Compare by x and y
  	public boolean compareTo(MapNode node) {
  		return (node.x == x && node.y == y);

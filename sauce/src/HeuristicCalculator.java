@@ -1,10 +1,7 @@
 package src;
-
-//Include Manhattan distance, Euclidean distance, Diagonal shortcut
-import java.util.*;
 public class HeuristicCalculator{
 
-    /*public double diagonalShorcut(int x, int y, int tx, int ty){
+    public double diagonalShorcut(int x, int y, int tx, int ty){
         int x1 = Math.abs(x-tx);
         int y1 = Math.abs(y-ty);
         double h;
@@ -25,7 +22,7 @@ public class HeuristicCalculator{
         //Done in Math class
         double h = Math.pow((Math.pow(x1,2) + Math.pow(y1,2)),0.5);
         return h;
-    }*/
+    }
     
     public double manhattanDistance(Node current, Node target){
         double h = 10*(Math.abs(current.getX()- target.getX())+Math.abs(current.getY() - target.getY()));

@@ -9,19 +9,11 @@ public class Main {
         
         StopWatch watch = new StopWatch();
         watch.start();
-        Pathfinder pathF = new Pathfinder(start, target);
+        new Pathfinder(start, target);
         watch.stop();
         System.out.println("Time taken to find path: " + watch.getElapsedTime() + "ms");
-         
-        /*Node n1 = new Node("Jean", false);
-        Node n2 = new Node("William",n1,null, false);
-        n1.setNext(n2);
-        Node n3 = new Node("Anthony",n2, null, false);
-        n2.setNext(n3);
-
-        Node start = n1;*/
-
-        //Node[][] map = new Node[5][5];
-
+        
+        Gui gui = new Gui();
+        gui.show();
     }
 }

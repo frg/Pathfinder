@@ -1,7 +1,6 @@
 package src;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Pathfinder extends HeuristicCalculator{
 	Map map = new Map();
