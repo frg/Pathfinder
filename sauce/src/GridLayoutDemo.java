@@ -2,6 +2,7 @@ package src;
 
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
 import javax.swing.UIManager.LookAndFeelInfo;
 
@@ -13,17 +14,33 @@ public class GridLayoutDemo extends JFrame {
      
     public void addComponentsToPane(final Container pane) {
         final JPanel compsToExperiment = new JPanel();
-        compsToExperiment.setLayout(new GridLayout(20, 20));
+        compsToExperiment.setLayout(new GridLayout(10, 10));
         //JPanel controls = new JPanel();
         //controls.setLayout(new GridLayout(2, 1));
          
-        //compsToExperiment.setPreferredSize(new Dimension(500,500));
+        compsToExperiment.setPreferredSize(new Dimension(400,400));
          
+        Dimension btnDim = new Dimension(30, 30);
         //Add buttons to experiment with Grid Layout
-        for (int i = 0; i < 400; i ++){
-        	GuiTile thisBtn = new GuiTile(0);
-        	thisBtn.setPreferredSize(new Dimension(30, 30));
-        	compsToExperiment.add(thisBtn);
+        for (int y = 0; y < 10; y++){
+        	for (int x = 0; x < 10; x++) {
+        		GuiTile thisBtn = new GuiTile(0);
+        		//Assign cords
+        		thisBtn.setRowCol(x, y);
+
+        		//Add action listener to button
+            	thisBtn.addActionListener(new ActionListener() {
+    				@Override
+    				public void actionPerformed(ActionEvent e) {
+    					// TODO Auto-generated method stub
+    					GuiTile tempBtn = (GuiTile) e.getSource();
+    					System.out.println(tempBtn.toString());
+    				}
+    			});
+            	
+            	thisBtn.setPreferredSize(btnDim);
+            	compsToExperiment.add(thisBtn);
+        	}
         }
          
         pane.add(compsToExperiment, BorderLayout.WEST);
