@@ -1,4 +1,4 @@
-package src;
+package src.v2;
 
 public class MapNode implements Comparable<MapNode>{
     private int x;

@@ -1,4 +1,4 @@
-package src;
+package src.v2;
 
 public class Node extends HeuristicCalculator implements Comparable<Node>{
     private Node parent;
