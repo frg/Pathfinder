@@ -1,6 +1,6 @@
 package src;
 
-public class MapNode implements Comparable<MapNode>{
+public class MapNode {
     private int x;
 	private int y;
 	private double g;
@@ -23,14 +23,8 @@ public class MapNode implements Comparable<MapNode>{
     }
     
     // Compare by x and y 	
-  	@Override
- 	public int compareTo(MapNode mapNode) {
- 		// TODO Auto-generated method stub
-  		if (mapNode.getX() == this.getX() && mapNode.getY() == this.getY()) {
-  			return 0;
-  		}
-  		
-  		return -1;
+  	public boolean equals(Node node) {
+  		return (node.getX() == this.getX() && node.getY() == this.getY());
  	}
 
  	@Override

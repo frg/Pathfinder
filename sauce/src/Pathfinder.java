@@ -14,7 +14,7 @@ public class Pathfinder extends HeuristicCalculator{
 		
 		Node current = router(start);
 		//do until target is found
-		while (current.compareTo(target) == 0){
+		while (current.equals(target)){
 			current = router(current);
 		}
 	}
@@ -47,6 +47,7 @@ public class Pathfinder extends HeuristicCalculator{
 	}
 
 	//Assumption that provided node is not wall
+	//No diagonals
 	public ArrayList<Node> findAdjacent(Node current){
 		ArrayList<Node> nodeList = new ArrayList<Node>();
 		Double h = manhattanDistance(current, target);
@@ -84,7 +85,7 @@ public class Pathfinder extends HeuristicCalculator{
 	
 	public boolean closedContains(Node thisNode){
 		for (int i = 0; i < closedList.size(); i++){
-			if (closedList.get(i).compareTo(thisNode) == 0) {
+			if (closedList.get(i).equals(thisNode)) {
 				//System.out.println(thisNode.toString() + " is in closed list!");
 				return true;
 			}
@@ -94,7 +95,7 @@ public class Pathfinder extends HeuristicCalculator{
 	
 	public boolean openContains(Node thisNode){
 		for (int i = 0; i < openList.size(); i++){
-			if (openList.get(i).compareTo(thisNode) == 0) {
+			if (openList.get(i).equals(thisNode)) {
 				//System.out.println(thisNode.toString() + " is in open list!");
 				return true;
 			}

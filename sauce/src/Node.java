@@ -1,6 +1,6 @@
 package src;
 
-public class Node extends HeuristicCalculator implements Comparable<Node>{
+public class Node extends HeuristicCalculator{
     private Node parent;
     private int x;
 	private int y;
@@ -34,14 +34,8 @@ public class Node extends HeuristicCalculator implements Comparable<Node>{
     }
     
     // Compare by x and y 	
- 	@Override
-	public int compareTo(Node node) {
-		// TODO Auto-generated method stub
- 		if (node.getX() == this.getX() && node.getY() == this.getY()) {
- 			return 0;
- 		}
- 		
- 		return -1;
+	public boolean equals(Node node) {
+ 		return (node.getX() == this.getX() && node.getY() == this.getY());
 	}
 
  	@Override
