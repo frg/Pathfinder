@@ -13,9 +13,11 @@ public class Pathfinder extends HeuristicCalculator{
 		this.target = target;
 		
 		Node current = router(start);
+		int i = 0;
 		//do until target is found
-		while (current.equals(target)){
+		while (!current.equals(this.target) && i != 15) {
 			current = router(current);
+			i++;
 		}
 	}
 	
@@ -36,7 +38,8 @@ public class Pathfinder extends HeuristicCalculator{
 		double lowF = Double.MAX_VALUE;
 		int element = Integer.MAX_VALUE;
 		for(int i = 0; i < openList.size(); i++){
-			if (!closedContains(openList.get(i)) && openList.get(i).getF() < lowF){
+			//If the with the lowest F is not already in the closed list
+			if (!closedList.contains(openList.get(i)) && openList.get(i).getF() < lowF){
 				lowF = openList.get(i).getF();
 				element = i;
 			}
@@ -83,23 +86,26 @@ public class Pathfinder extends HeuristicCalculator{
 		return nodeList;
 	}
 	
-	public boolean closedContains(Node thisNode){
-		for (int i = 0; i < closedList.size(); i++){
-			if (closedList.get(i).equals(thisNode)) {
-				//System.out.println(thisNode.toString() + " is in closed list!");
-				return true;
-			}
-		}
-		return false;
-	}
+//	public boolean closedContains(Node thisNode){
+//		System.out.println("-- started checking in closed --");
+//		System.out.println("with contains method: " + closedList.contains(thisNode));
+//		
+//		for (int i = 0; i < closedList.size(); i++){
+//			if (closedList.get(i).equals(thisNode)) {
+//				System.out.println(thisNode.toString() + " is in closed list!");
+//				return true;
+//			}
+//		}
+//		return false;
+//	}
 	
-	public boolean openContains(Node thisNode){
-		for (int i = 0; i < openList.size(); i++){
-			if (openList.get(i).equals(thisNode)) {
-				//System.out.println(thisNode.toString() + " is in open list!");
-				return true;
-			}
-		}
-		return false;
-	}
+//	public boolean openContains(Node thisNode){
+//		for (int i = 0; i < openList.size(); i++){
+//			if (openList.get(i).equals(thisNode)) {
+//				//System.out.println(thisNode.toString() + " is in open list!");
+//				return true;
+//			}
+//		}
+//		return false;
+//	}
 }
